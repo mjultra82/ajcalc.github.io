@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>abolfazl javadi</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .calculator {
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: 400px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      .calculator h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+      .calculator input[type="text"],
+      .calculator input[type="button"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 18px;
+        box-sizing: border-box;
+      }
+      .calculator input[type="button"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .calculator input[type="button"]:hover {
+        background-color: #3e8e41;
+      }
+      .calculator .row {
+        display: flex;
+      }
+      .calculator .row .col {
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+    <script>
+      function insert(num) {
+        document.getElementById("display").value += num;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculate() {
+        var expression = document.getElementById("display").value;
+        try {
+          var result = eval(expression);
+          document.getElementById("display").value = result;
+        } catch (error) {
+          alert("Invalid expression");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>abolfazl javadi</h1>
+      <input type="text" id="display" placeholder="0" readonly>
+      <div class="row">
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="button" value="(" onclick="insert('(')">
+        <input type="button" value=")" onclick="insert(')')">
+        <input type="button" value="/" onclick="insert('/')">
+      </div>
+      <div class="row">
+        <input type="button" value="7" onclick="insert('7')">
+        <input type="button" value="8" onclick="insert('8')">
+        <input type="button" value="9" onclick="insert('9')">
+        <input type="button" value="*" onclick="insert('*')">
+      </div>
+      <div class="row">
+        <input type="button" value="4" onclick="insert('4')">
+        <input type="button" value="5" onclick="insert('5')">
+        <input type="button" value="6" onclick="insert('6')">
+        <input type="button" value="-" onclick="insert('-')">
+      </div>
+      <div class="row">
+        <input type="button" value="1" onclick="insert('1')">
+        <input type="button" value="2" onclick="insert('2')">
+        <input type="button" value="3" onclick="insert('3')">
+        <input type="button" value="+" onclick="insert('+')">
+
+  </div>
+  <div class="row">
+    <input type="button" value="0" onclick="insert('0')">
+    <input type="button" value="." onclick="insert('.')">
+    <input type="button" value="=" onclick="calculate()">
+  </div>
+</div>
+
+
+
